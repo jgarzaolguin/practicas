@@ -1,0 +1,415 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13138,        405]
+NotebookOptionsPosition[     12764,        388]
+NotebookOutlinePosition[     13116,        404]
+CellTagsIndexPosition[     13073,        401]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"funizq1", "[", 
+    RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+   RowBox[{"c1", " ", 
+    RowBox[{"Exp", "[", 
+     RowBox[{"z", " ", "\[Gamma]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"funcen1", "[", 
+    RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", " ", 
+   RowBox[{"c1", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Exp", "[", 
+       RowBox[{"-", "z"}], "]"}], "/", 
+      RowBox[{"Cos", "[", "y", "]"}]}], ")"}], " ", 
+    RowBox[{"Cos", "[", 
+     RowBox[{"y", " ", "\[Gamma]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"funder1", "[", 
+    RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+   RowBox[{"c1", " ", 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", "z"}], " ", "\[Gamma]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fun1", "[", 
+   RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"funizq1", "[", 
+    RowBox[{"y", ",", "z", ",", "\[Gamma]"}], "]"}], "/;", 
+   RowBox[{"\[Gamma]", "<", 
+    RowBox[{"-", "1"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fun1", "[", 
+   RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"funcen1", "[", 
+    RowBox[{"y", ",", "z", ",", "\[Gamma]"}], "]"}], "/;", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"\[Gamma]", ">", 
+      RowBox[{"-", "1"}]}], " ", "&&", " ", 
+     RowBox[{"\[Gamma]", "<", "1"}]}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fun1", "[", 
+   RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"funder1", "[", 
+    RowBox[{"y", ",", "z", ",", "\[Gamma]"}], "]"}], "/;", 
+   RowBox[{"\[Gamma]", ">", "1"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"funizq2", "[", 
+    RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+   RowBox[{"c1", " ", 
+    RowBox[{"Exp", "[", 
+     RowBox[{"z", " ", "\[Gamma]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"funcen2", "[", 
+    RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{"-", "c1"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Exp", "[", 
+       RowBox[{"-", "z"}], "]"}], "/", 
+      RowBox[{"Sin", "[", "y", "]"}]}], ")"}], " ", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"y", " ", "\[Gamma]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"funder2", "[", 
+    RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"-", "c1"}], " ", 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", "z"}], " ", "\[Gamma]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fun2", "[", 
+   RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"funizq2", "[", 
+    RowBox[{"y", ",", "z", ",", "\[Gamma]"}], "]"}], "/;", 
+   RowBox[{"\[Gamma]", "<", 
+    RowBox[{"-", "1"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fun2", "[", 
+   RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"funcen2", "[", 
+    RowBox[{"y", ",", "z", ",", "\[Gamma]"}], "]"}], "/;", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"\[Gamma]", ">", 
+      RowBox[{"-", "1"}]}], " ", "&&", " ", 
+     RowBox[{"\[Gamma]", "<", "1"}]}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fun2", "[", 
+   RowBox[{"y_", ",", "z_", ",", "\[Gamma]_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"funder2", "[", 
+    RowBox[{"y", ",", "z", ",", "\[Gamma]"}], "]"}], "/;", 
+   RowBox[{"\[Gamma]", ">", "1"}]}]}]}], "Input",
+ CellChangeTimes->{{3.707044575301022*^9, 3.707044763537281*^9}, {
+   3.707433103494166*^9, 3.7074333020597982`*^9}, {3.707433613527997*^9, 
+   3.707433639919261*^9}, {3.707434124665018*^9, 3.707434192860959*^9}, {
+   3.707434293686242*^9, 3.707434402287423*^9}, 3.707434476191229*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"radio", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tangente", "=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"y", " ", 
+      RowBox[{"Tan", "[", "y", "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "0", ",", "radio"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "radio"}], "}"}]}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Red"}], ",", 
+     RowBox[{"Exclusions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Pi", "/", "2"}], ",", 
+        RowBox[{"3", " ", 
+         RowBox[{"Pi", "/", "2"}]}]}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cotangente", "=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "y"}], " ", 
+      RowBox[{"Cot", "[", "y", "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "0", ",", "radio"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "radio"}], "}"}]}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+     RowBox[{"Exclusions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Pi", ",", 
+        RowBox[{"2", " ", "Pi"}]}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"circulo", "=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"Circle", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], ",", "radio"}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"final", "=", 
+  RowBox[{"Show", "[", 
+   RowBox[{"tangente", ",", "cotangente", ",", "circulo", ",", 
+    RowBox[{"AxesLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "z"}], "}"}]}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.70734599164191*^9, 3.707346098119751*^9}, {
+  3.707346234307931*^9, 3.70734624831527*^9}, {3.7073463334189577`*^9, 
+  3.7073463418363733`*^9}, {3.707346578201284*^9, 3.707346584133988*^9}, {
+  3.707346660689101*^9, 3.707346679578699*^9}, {3.707346917108032*^9, 
+  3.707346918267128*^9}, {3.707433320931263*^9, 3.707433321756139*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"uno", "=", 
+   RowBox[{"FindRoot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{
+        RowBox[{"radio", "^", "2"}], "-", 
+        RowBox[{"y", "^", "2"}]}], "]"}], "==", 
+      RowBox[{"y", " ", 
+       RowBox[{"Tan", "[", "y", "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "1.2"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"yraiz1", "=", 
+   RowBox[{"y", "/.", "uno"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"zraiz1", "=", 
+   RowBox[{"yraiz1", "*", 
+    RowBox[{"Tan", "[", "yraiz1", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", "c1", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"intizq", "=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"funizq1", "[", 
+       RowBox[{"yraiz1", ",", "zraiz1", ",", "\[Gamma]"}], "]"}], "^", "2"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", 
+       RowBox[{"-", "Infinity"}], ",", 
+       RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"intcen", "=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"funcen1", "[", 
+       RowBox[{"yraiz1", ",", "zraiz1", ",", "\[Gamma]"}], "]"}], "^", "2"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"intder", "=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"funder1", "[", 
+       RowBox[{"yraiz1", ",", "zraiz1", ",", "\[Gamma]"}], "]"}], "^", "2"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", "1", ",", "Infinity"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"total", "=", 
+   RowBox[{"intizq", "+", "intcen", "+", "intder"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"norma", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"total", "\[Equal]", "1"}], ",", "c1"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c1", "=", 
+   RowBox[{"Abs", "[", 
+    RowBox[{"c1", "/.", 
+     RowBox[{"norma", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"fun1", "[", 
+    RowBox[{"yraiz1", ",", "zraiz1", ",", "\[Gamma]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Gamma]", ",", 
+     RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", "1"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.707348021097542*^9, 3.707348087917782*^9}, {
+  3.707348163014957*^9, 3.70734816442697*^9}, {3.707348665993322*^9, 
+  3.707348666735773*^9}, {3.707348856052845*^9, 3.707348857431918*^9}, {
+  3.707433432406569*^9, 3.707433447398567*^9}, {3.70743398635507*^9, 
+  3.707434031029726*^9}, {3.70743420362115*^9, 3.707434220637986*^9}, {
+  3.707434753847588*^9, 3.707434756165572*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"dos", "=", 
+   RowBox[{"FindRoot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{
+        RowBox[{"radio", "^", "2"}], "-", 
+        RowBox[{"y", "^", "2"}]}], "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"-", "y"}], " ", 
+       RowBox[{"Cot", "[", "y", "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "2.3"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"yraiz2", "=", 
+   RowBox[{"y", "/.", "dos"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"zraiz2", "=", 
+   RowBox[{
+    RowBox[{"-", "yraiz2"}], "*", 
+    RowBox[{"Cot", "[", "yraiz2", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", "c1", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"intizq", "=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"funizq2", "[", 
+       RowBox[{"yraiz2", ",", "zraiz2", ",", "\[Gamma]"}], "]"}], "^", "2"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", 
+       RowBox[{"-", "Infinity"}], ",", 
+       RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"intcen", "=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"funcen2", "[", 
+       RowBox[{"yraiz2", ",", "zraiz2", ",", "\[Gamma]"}], "]"}], "^", "2"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"intder", "=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"funder2", "[", 
+       RowBox[{"yraiz2", ",", "zraiz2", ",", "\[Gamma]"}], "]"}], "^", "2"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", "1", ",", "Infinity"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"total", "=", 
+   RowBox[{"intizq", "+", "intcen", "+", "intder"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"norma", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"total", "\[Equal]", "1"}], ",", "c1"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c1", "=", 
+   RowBox[{"Abs", "[", 
+    RowBox[{"c1", "/.", 
+     RowBox[{"norma", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"fun2", "[", 
+    RowBox[{"yraiz2", ",", "zraiz2", ",", "\[Gamma]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Gamma]", ",", 
+     RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", "1"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7074340753246727`*^9, 3.70743410597974*^9}, {
+  3.7074342601054497`*^9, 3.707434270214596*^9}, {3.707434491193523*^9, 
+  3.707434509813677*^9}, {3.707434543897627*^9, 3.707434561944502*^9}, {
+  3.707434626984806*^9, 3.707434651613377*^9}, {3.707434764719953*^9, 
+  3.707434766630267*^9}}]
+},
+WindowSize->{808, 610},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3959, 118, 216, "Input"],
+Cell[4520, 140, 2160, 59, 131, "Input"],
+Cell[6683, 201, 3057, 91, 199, "Input"],
+Cell[9743, 294, 3017, 92, 199, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

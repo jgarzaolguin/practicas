@@ -1,0 +1,521 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18803,        512]
+NotebookOptionsPosition[     17895,        475]
+NotebookOutlinePosition[     18248,        491]
+CellTagsIndexPosition[     18205,        488]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Soluci\[OAcute]n del problema de una part\[IAcute]cula bajo un potencial de \
+pozos finitos
+Jorge Garza. 2015\
+\>", "Section",
+ CellChangeTimes->{{3.62042118747766*^9, 3.620421219846352*^9}, {
+  3.666446905508847*^9, 3.666446916811101*^9}, {3.666447226662431*^9, 
+  3.666447262382225*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Definici\[OAcute]n de la base, del orbital y de la integral del potencial\
+\>", "Subsection",
+ CellChangeTimes->{{3.620421228617687*^9, 3.6204212946285686`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"base", "[", 
+    RowBox[{"n_", ",", "x_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Sqrt", "[", 
+     RowBox[{"2", "/", "L"}], "]"}], "*", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"n", "*", "Pi", "*", 
+      RowBox[{"x", "/", "L"}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"orbital", "[", 
+    RowBox[{"i_", ",", "x_"}], "]"}], ":=", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"vectores", "[", 
+       RowBox[{"[", 
+        RowBox[{"i", ",", "k"}], "]"}], "]"}], "*", 
+      RowBox[{"base", "[", 
+       RowBox[{"k", ",", "x"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "1", ",", "total"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"potencial", "[", 
+    RowBox[{"m_", ",", "n_", ",", "pozos_"}], "]"}], ":=", 
+   RowBox[{"V0", "*", 
+    RowBox[{"Sum", "[", 
+     RowBox[{
+      RowBox[{"Integrate", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"base", "[", 
+          RowBox[{"m", ",", "x"}], "]"}], "*", 
+         RowBox[{"base", "[", 
+          RowBox[{"n", ",", "x"}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", 
+          RowBox[{
+           RowBox[{"parte", "*", 
+            RowBox[{"L", "/", "pozos"}]}], "-", 
+           RowBox[{"b", "/", "2"}]}], ",", 
+          RowBox[{
+           RowBox[{"parte", "*", 
+            RowBox[{"L", "/", "pozos"}]}], "+", 
+           RowBox[{"b", "/", "2"}]}]}], "}"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"parte", ",", "1", ",", 
+        RowBox[{"pozos", "-", "1"}]}], "}"}]}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.620381916505869*^9, 3.620381949200068*^9}, {
+   3.620382018718791*^9, 3.620382019509601*^9}, {3.620406555701724*^9, 
+   3.620406611481503*^9}, 3.620411781262047*^9, {3.6204120786979027`*^9, 
+   3.620412087096121*^9}, {3.620414063124711*^9, 3.620414064850683*^9}, {
+   3.6204141751876698`*^9, 3.620414176979619*^9}, {3.620419980788374*^9, 
+   3.620419982447907*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Definici\[OAcute]n del n\[UAcute]mero de pozos y evaluaci\[OAcute]n de las \
+integrales\
+\>", "Subsection",
+ CellChangeTimes->{{3.620421305164576*^9, 3.620421309285861*^9}, {
+  3.620421427312653*^9, 3.620421446701311*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"totpozos", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"diagonal", "[", 
+    RowBox[{"m_", ",", "n_"}], "]"}], "=", 
+   RowBox[{"Limit", "[", 
+    RowBox[{
+     RowBox[{"potencial", "[", 
+      RowBox[{"m", ",", "n", ",", "totpozos"}], "]"}], ",", 
+     RowBox[{"n", "\[Rule]", "m"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nodiagonal", "[", 
+    RowBox[{"m_", ",", "n_"}], "]"}], "=", 
+   RowBox[{"potencial", "[", 
+    RowBox[{"m", ",", "n", ",", "totpozos"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pot", "[", 
+   RowBox[{"m_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"nodiagonal", "[", 
+    RowBox[{"m", ",", "n"}], "]"}], "/;", 
+   RowBox[{"n", "!=", "m"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pot", "[", 
+   RowBox[{"m_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"diagonal", "[", 
+    RowBox[{"m", ",", "n"}], "]"}], "/;", 
+   RowBox[{"n", "\[Equal]", "m"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cine", "[", 
+   RowBox[{"m_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"m", "^", "2"}], 
+    RowBox[{
+     RowBox[{"Pi", "^", "2"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", "*", 
+       RowBox[{"L", "^", "2"}]}], ")"}]}]}], "/;", 
+   RowBox[{"m", "\[Equal]", "n"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cine", "[", 
+   RowBox[{"m_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"0", "/;", 
+   RowBox[{"m", "!=", "n"}]}]}]}], "Input",
+ CellChangeTimes->{{3.620413859356921*^9, 3.620413868500732*^9}, {
+  3.620413902477645*^9, 3.620413935864606*^9}, {3.620414006295684*^9, 
+  3.620414019552206*^9}, {3.620414770451964*^9, 3.62041477093705*^9}, {
+  3.620419717542832*^9, 3.620419717715068*^9}, {3.6204204831935873`*^9, 
+  3.6204204832544537`*^9}, {3.620420842453012*^9, 3.6204208427699203`*^9}, {
+  3.620420991577798*^9, 3.620420991997486*^9}, {3.6204215996472692`*^9, 
+  3.620421599949745*^9}, {3.620426441657671*^9, 3.620426441983975*^9}, {
+  3.620430041309888*^9, 3.620430041450254*^9}, {3.620468932447424*^9, 
+  3.620468932957242*^9}, {3.620469217163303*^9, 3.6204692175867567`*^9}, {
+  3.620469733148223*^9, 3.6204697335469637`*^9}, {3.620471327537786*^9, 
+  3.620471327967067*^9}, {3.666446936925362*^9, 3.666446937349118*^9}, {
+  3.666447487571526*^9, 3.66644748805018*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Par\[AAcute]metros del potencial y n\[UAcute]mero de funciones de \
+base", "Subsection",
+ CellChangeTimes->{{3.6204214553215837`*^9, 3.6204214734385138`*^9}, {
+  3.620421511109912*^9, 3.620421517413644*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{
+    RowBox[{"totpozos", "*", "a"}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"totpozos", "-", "1"}], ")"}], "*", "b"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"V0", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"total", "=", "30"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.620420846794993*^9, 3.620420847025457*^9}, {
+   3.620420912091017*^9, 3.620420912735211*^9}, {3.620420953628252*^9, 
+   3.620420954058566*^9}, {3.620420999358584*^9, 3.6204210184317493`*^9}, {
+   3.620421059900814*^9, 3.620421059962344*^9}, {3.6204216057044497`*^9, 
+   3.620421605917069*^9}, {3.620426487070424*^9, 3.6204264874754553`*^9}, {
+   3.6204672935101957`*^9, 3.62046729937341*^9}, {3.620467911189617*^9, 
+   3.62046791141302*^9}, {3.620467945377911*^9, 3.6204679455510674`*^9}, {
+   3.6204679783389378`*^9, 3.62046797858574*^9}, 3.6204680588746223`*^9, {
+   3.6204680923589783`*^9, 3.620468093443166*^9}, {3.6204682777065268`*^9, 
+   3.62046827782556*^9}, 3.620468372026823*^9, {3.620468938612845*^9, 
+   3.6204689398602123`*^9}, {3.620469048942636*^9, 3.620469049141573*^9}, {
+   3.62046907937031*^9, 3.620469079775481*^9}, {3.62046911139673*^9, 
+   3.6204691337802134`*^9}, {3.620469256744117*^9, 3.62046925689323*^9}, {
+   3.620469304099008*^9, 3.620469331299614*^9}, {3.6204697449076777`*^9, 
+   3.6204697452830477`*^9}, {3.620469822963746*^9, 3.620469823081321*^9}, {
+   3.620470129130965*^9, 3.620470129585244*^9}, {3.621259321995514*^9, 
+   3.621259322169096*^9}, {3.621259354580391*^9, 3.621259354803876*^9}, {
+   3.666446963957459*^9, 3.666446992613909*^9}, {3.666447070930603*^9, 
+   3.666447071008815*^9}, {3.6664475748278418`*^9, 3.6664475989778833`*^9}, {
+   3.666447672214107*^9, 3.666447693876903*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Gr\[AAcute]fica del potencial", "Subsection",
+ CellChangeTimes->{{3.620421483526396*^9, 3.6204214959193783`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"maximo", "=", "6"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"v", "[", "x_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"10", "^", "6"}], "/;", 
+   RowBox[{
+    RowBox[{"x", "\[LessEqual]", "0"}], "||", 
+    RowBox[{"x", "\[GreaterEqual]", "L"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"g", "[", "parte_", "]"}], ":=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"V0", "*", 
+      RowBox[{"UnitStep", "[", 
+       RowBox[{
+        RowBox[{"x", "/", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"parte", "*", "a"}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"parte", "-", "1"}], ")"}], "*", "b"}]}], ")"}]}], "-", 
+        "1"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"parte", "-", "1"}], ")"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"a", "+", "b"}], ")"}]}], ",", 
+       RowBox[{"parte", "*", 
+        RowBox[{"(", 
+         RowBox[{"a", "+", "b"}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "b"}], "/", "4"}], ",", 
+          RowBox[{"L", "+", 
+           RowBox[{"b", "/", "4"}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "maximo"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+     RowBox[{"FillingStyle", "\[Rule]", "Gray"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Black"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"infinito", "=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"v", "[", "x", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "1"}], ",", 
+       RowBox[{"L", "+", "2"}]}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "b"}], "/", "4"}], ",", 
+          RowBox[{"L", "+", 
+           RowBox[{"b", "/", "4"}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "maximo"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+     RowBox[{"FillingStyle", "\[Rule]", "Gray"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Black"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"formapot", "=", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"g", "[", "i", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"totpozos", "-", "1"}]}], "}"}]}], "]"}], ",", "infinito"}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.620420678143536*^9, 3.620420681954575*^9}, {
+  3.620420716306532*^9, 3.620420719105075*^9}, {3.620467341587232*^9, 
+  3.620467359563859*^9}, {3.620467413463883*^9, 3.620467414760419*^9}, {
+  3.6204674453236427`*^9, 3.620467480295116*^9}, {3.6204675682293167`*^9, 
+  3.620467568450362*^9}, {3.620467656508114*^9, 3.620467657898116*^9}, {
+  3.620467851827425*^9, 3.6204678810514603`*^9}, {3.620468972595027*^9, 
+  3.620468972743823*^9}, {3.620469007412224*^9, 3.6204690083625402`*^9}, {
+  3.6204697989793243`*^9, 3.620469799400943*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Valores y vectores propios del hamiltoniano", "Subsection",
+ CellChangeTimes->{{3.620421533146593*^9, 3.620421552285892*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"hamiltoniano", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"N", "[", 
+      RowBox[{
+       RowBox[{"cine", "[", 
+        RowBox[{"m", ",", "n"}], "]"}], "+", 
+       RowBox[{"pot", "[", 
+        RowBox[{"m", ",", "n"}], "]"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", "total"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1", ",", "total"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"vectores", "=", 
+   RowBox[{"Eigenvectors", "[", "hamiltoniano", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"valores", "=", 
+   RowBox[{"Eigenvalues", "[", "hamiltoniano", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<Energ\[IAcute]a por estado:\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "total"}], ",", 
+   RowBox[{"i", "\[GreaterEqual]", 
+    RowBox[{"total", "-", "totpozos", "+", "1"}]}], ",", 
+   RowBox[{"i", "--"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Print", "[", 
+    RowBox[{"valores", "[", 
+     RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.62041421563944*^9, 3.620414242312392*^9}, {
+   3.620414318551694*^9, 3.620414340066042*^9}, {3.620414482210992*^9, 
+   3.620414493429994*^9}, {3.62041460945289*^9, 3.620414609780965*^9}, {
+   3.620414708228609*^9, 3.620414731511241*^9}, {3.620414776969594*^9, 
+   3.6204147774572773`*^9}, {3.620414856513191*^9, 3.620414856927457*^9}, {
+   3.620415026086463*^9, 3.620415026252631*^9}, {3.620415060674368*^9, 
+   3.620415060760079*^9}, {3.620415099849308*^9, 3.6204150999873543`*^9}, {
+   3.620415132911807*^9, 3.620415133221004*^9}, {3.620419867451096*^9, 
+   3.62041986777386*^9}, {3.620420390137686*^9, 3.62042040899422*^9}, {
+   3.6204205468129463`*^9, 3.620420547371984*^9}, {3.620420583058893*^9, 
+   3.6204205853196363`*^9}, 3.6204206499610147`*^9, 3.620420817114807*^9, {
+   3.666447531537407*^9, 3.6664475588968973`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"estado", "=", "total"}], ";", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Mathematica", " ", "ordena", " ", "los", " ", "valores", " ", "propios", 
+    " ", "del", " ", "m\[AAcute]s", " ", "alto", " ", "al", " ", 
+    "m\[AAcute]s", " ", "bajo"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Show", "[", 
+   RowBox[{"formapot", ",", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"valores", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "total", ",", "1", ",", 
+          RowBox[{"-", "1"}]}], "}"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0", ",", "L"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "L"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "maximo"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"PlotStyle", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", 
+         RowBox[{"Thickness", "[", ".0015", "]"}]}], "}"}]}]}], "]"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"grafedo", "=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"orbital", "[", 
+        RowBox[{"estado", ",", "x"}], "]"}], "^", "2"}], "+", 
+      RowBox[{"valores", "[", 
+       RowBox[{"[", "estado", "]"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "L"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "L"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "maximo"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Black"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"presenta", "=", 
+  RowBox[{"Show", "[", 
+   RowBox[{"formapot", ",", "grafedo", ",", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"valores", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "total", ",", "1", ",", 
+          RowBox[{"-", "1"}]}], "}"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0", ",", "L"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "L"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "maximo"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"PlotStyle", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", 
+         RowBox[{"Thickness", "[", ".0015", "]"}]}], "}"}]}]}], "]"}]}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.620405780941221*^9, 3.6204058171580143`*^9}, {
+   3.620405935703021*^9, 3.6204059527102003`*^9}, {3.620406079356969*^9, 
+   3.620406084223933*^9}, {3.6204062177965603`*^9, 3.620406266984021*^9}, {
+   3.6204063158290043`*^9, 3.620406320827619*^9}, {3.620406352814062*^9, 
+   3.6204064640220833`*^9}, 3.620406765088274*^9, {3.620406803939266*^9, 
+   3.620406962157674*^9}, {3.6204070573674793`*^9, 3.62040710186378*^9}, {
+   3.620407644071938*^9, 3.6204076531590357`*^9}, {3.6204078750383053`*^9, 
+   3.6204078935420027`*^9}, {3.620411048878742*^9, 3.620411049404119*^9}, 
+   3.620414288984899*^9, {3.620414372196686*^9, 3.620414390299986*^9}, {
+   3.620414994636447*^9, 3.620414994810747*^9}, {3.620419473253399*^9, 
+   3.620419487917074*^9}, {3.6204195632216787`*^9, 3.620419585049876*^9}, {
+   3.620419634013638*^9, 3.620419644909318*^9}, {3.620419786961708*^9, 
+   3.620419788556097*^9}, {3.620420729381591*^9, 3.620420762868372*^9}, {
+   3.62042109452801*^9, 3.6204211502101583`*^9}, {3.620421568252802*^9, 
+   3.620421584725153*^9}, 3.620421674765732*^9, {3.620467334797772*^9, 
+   3.620467336147558*^9}, {3.6204674942643538`*^9, 3.6204675418513603`*^9}, {
+   3.620467643737763*^9, 3.620467644946413*^9}, {3.6204676833424797`*^9, 
+   3.620467743035796*^9}, {3.620467799359579*^9, 3.620467836531158*^9}, {
+   3.620468138744261*^9, 3.6204681413350286`*^9}, {3.62125934106898*^9, 
+   3.6212593416684113`*^9}, {3.6664470205687513`*^9, 3.666447028904427*^9}, {
+   3.666447084140215*^9, 3.666447126005434*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1036, 857},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 299, 7, 99, "Section"],
+Cell[CellGroupData[{
+Cell[904, 33, 171, 3, 44, "Subsection"],
+Cell[1078, 38, 2047, 58, 80, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3162, 101, 232, 5, 44, "Subsection"],
+Cell[3397, 108, 2379, 61, 131, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5813, 174, 213, 3, 44, "Subsection"],
+Cell[6029, 179, 1942, 36, 97, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8008, 220, 119, 1, 44, "Subsection"],
+Cell[8130, 223, 3275, 92, 131, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11442, 320, 131, 1, 44, "Subsection"],
+Cell[11576, 323, 2026, 46, 114, "Input"],
+Cell[13605, 371, 4262, 100, 131, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

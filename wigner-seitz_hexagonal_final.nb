@@ -1,0 +1,110 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4158,        102]
+NotebookOptionsPosition[      3867,         87]
+NotebookOutlinePosition[      4225,        103]
+CellTagsIndexPosition[      4182,        100]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Jorge Garza.
+ Mayo, 2017
+Celda de Wigner - Seitz de una malla hexagonal. Los puntos azules denotan \
+puntos de la malla y los puntos rojos son los puntos medios con los que se \
+construyen los planos que forman la celda de Wigner - Seitz.\
+\>", "Text",
+ CellChangeTimes->{{3.704214872921618*^9, 3.704214894379476*^9}}],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   GraphicsComplex3DBox[{{3., 0.5773502691896258, 2.5}, {3., 
+    1.1547005383792517`, 2.5}, {2.5, 1.4433756729740645`, 2.5}, {2., 
+    1.1547005383792517`, 2.5}, {2., 0.5773502691896258, 2.5}, {2.5, 
+    0.2886751345948129, 2.5}, {3., 0.5773502691896258, 1.5}, {2.5, 
+    0.2886751345948129, 1.5}, {2., 0.5773502691896258, 1.5}, {2., 
+    1.1547005383792517`, 1.5}, {2.5, 1.4433756729740645`, 1.5}, {3., 
+    1.1547005383792517`, 1.5}}, 
+    {Hue[0.6, 0.3, 0.85], EdgeForm[Hue[0.6, 0.3, 0.75]], FaceForm[Opacity[
+     0.6]], Polygon3DBox[{{12, 2, 7}, {7, 1, 6}, {1, 2, 6}, {9, 5, 10}, {5, 4,
+       10}, {4, 3, 10}, {9, 10, 8}, {2, 1, 7}, {10, 11, 8}, {2, 3, 6}, {11, 
+      12, 8}, {12, 7, 8}, {3, 11, 10}, {7, 6, 8}, {3, 2, 11}, {2, 12, 11}, {3,
+       4, 6}, {4, 5, 6}, {5, 9, 6}, {6, 9, 8}}]}], {
+    {RGBColor[0, 0, 1], 
+     SphereBox[
+      NCache[{{Rational[5, 2], Rational[1, 2] 3^Rational[1, 2], 2}, {
+        Rational[3, 2], Rational[1, 2] 3^Rational[1, 2], 2}, {
+        2, 3^Rational[1, 2], 2}, {2, 0, 2}, {
+        Rational[5, 2], Rational[1, 2] 3^Rational[1, 2], 1}, {
+        Rational[5, 2], Rational[1, 2] 3^Rational[1, 2], 3}, {
+        3, 3^Rational[1, 2], 2}, {3, 0, 2}, {
+        Rational[7, 2], Rational[1, 2] 3^Rational[1, 2], 2}}, {{
+        2.5, 0.8660254037844386, 2}, {1.5, 0.8660254037844386, 2}, {
+        2, 1.7320508075688772`, 2}, {2, 0, 2}, {2.5, 0.8660254037844386, 1}, {
+        2.5, 0.8660254037844386, 3}, {3, 1.7320508075688772`, 2}, {3, 0, 2}, {
+        3.5, 0.8660254037844386, 2}}], 0.05]}, 
+    {RGBColor[1, 0, 0], 
+     SphereBox[
+      NCache[{{2, Rational[1, 2] 3^Rational[1, 2], 2}, {
+        Rational[9, 4], Rational[3, 4] 3^Rational[1, 2], 2}, {
+        Rational[9, 4], Rational[1, 4] 3^Rational[1, 2], 2}, {
+        Rational[5, 2], Rational[1, 2] 3^Rational[1, 2], Rational[3, 2]}, {
+        Rational[5, 2], Rational[1, 2] 3^Rational[1, 2], Rational[5, 2]}, {
+        Rational[11, 4], Rational[3, 4] 3^Rational[1, 2], 2}, {
+        Rational[11, 4], Rational[1, 4] 3^Rational[1, 2], 2}, {
+        3, Rational[1, 2] 3^Rational[1, 2], 2}}, {{
+        2, 0.8660254037844386, 2}, {2.25, 1.299038105676658, 2}, {
+        2.25, 0.4330127018922193, 2}, {2.5, 0.8660254037844386, 1.5}, {2.5, 
+        0.8660254037844386, 2.5}, {2.75, 1.299038105676658, 2}, {
+        2.75, 0.4330127018922193, 2}, {3, 0.8660254037844386, 2}}], 0.02]}}},
+  Boxed->False,
+  ImageSize->{387.468616417485, 361.6876921519252},
+  ImageSizeRaw->Automatic,
+  Lighting->{{"Ambient", 
+     GrayLevel[0.45]}, {"Directional", 
+     GrayLevel[0.3], 
+     ImageScaled[{2, 0, 2}]}, {"Directional", 
+     GrayLevel[0.33], 
+     ImageScaled[{2, 2, 2}]}, {"Directional", 
+     GrayLevel[0.3], 
+     ImageScaled[{0, 2, 2}]}},
+  Method->{"ShrinkWrap" -> True},
+  ViewPoint->{-2.6401976179092363`, -2.107446250979749, 0.19500471178359044`},
+  
+  ViewVertical->{-0.4144757571386606, -0.40361090666145544`, 
+   0.8391822345129502}]], "Input"]
+},
+WindowSize->{808, 865},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"11.0 para Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 328, 7, 87, "Text"],
+Cell[889, 29, 2974, 56, 377, "Input"]
+}
+]
+*)
+
